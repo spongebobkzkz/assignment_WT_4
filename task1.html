@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 1: Book a train ticket — Assignment #4 | Beisenbay Estai</title>
+  <title>Book a train ticket</title>
   
   <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -11,164 +11,127 @@
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/custom.css">
 </head>
-<body>
+<body style="background-color: #F4F7F5; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px 12px;">
 
-  <!-- Cargo Navigation Header (SwiftCargo / SPEED CARGO style) -->
-  <nav class="cargo-nav py-2">
-    <div class="container-fluid px-2 px-md-4 d-flex flex-wrap align-items-center justify-content-between gap-1">
-      <a href="index.html" class="d-flex align-items-center text-decoration-none cargo-brand-logo gap-1.5">
-        <span class="fs-5">⚡</span>
-        <div>
-          <div style="font-size: 0.95rem;">SWIFTCARGO / AITU</div>
-          <div class="d-none d-sm-block" style="font-size: 0.65rem; color: #94A3B8; font-weight: 500; letter-spacing: 0.08em;">ASSIGNMENT #4 • WT</div>
-        </div>
-      </a>
-      
-      <div class="d-flex align-items-center flex-wrap gap-1">
-        <a href="index.html" class="cargo-nav-link text-decoration-none">Overview</a>
-        <a href="task1.html" class="cargo-nav-link active text-decoration-none">Task 1</a>
-        <a href="task2.html" class="cargo-nav-link text-decoration-none">Task 2</a>
-        <a href="task3.html" class="cargo-nav-link text-decoration-none">Task 3</a>
-      </div>
-
-      <div class="student-badge d-none d-lg-block">
-        👤 Beisenbay Estai • IT-2511
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content Wrapper -->
-  <main class="container py-2 py-md-5">
+  <div class="train-booking-wrapper w-100">
     
-    <div class="train-booking-wrapper">
+    <!-- Train Booking Card matching design -->
+    <div class="train-card">
       
-      <!-- Train Booking Card -->
-      <div class="train-card">
+      <!-- Header Banner -->
+      <div class="train-header-banner">
+        Book a train ticket
+      </div>
+
+      <!-- Form (No JavaScript, no novalidate attribute) -->
+      <form action="#" method="post">
         
-        <!-- Header Banner -->
-        <div class="train-header-banner">
-          Book a train ticket
+        <!-- Row 1: Trip Type Radios (Segmented pill toggle) -->
+        <div class="mb-4">
+          <div class="trip-type-segmented" role="radiogroup" aria-label="Trip type selection">
+            <input type="radio" class="btn-check" name="tripType" id="oneWay" value="oneWay" checked required>
+            <label class="btn btn-trip" for="oneWay">One way</label>
+
+            <input type="radio" class="btn-check" name="tripType" id="roundTrip" value="roundTrip" required>
+            <label class="btn btn-trip" for="roundTrip">Round trip</label>
+          </div>
         </div>
 
-        <!-- Form strictly following page 2 constraints: NO JS, NO novalidate, keyboard accessible -->
-        <form action="#" method="post">
-          
-          <!-- Row 1: Trip Type Radios (Segmented pill toggle) -->
-          <div class="mb-4">
-            <div class="trip-type-segmented" role="radiogroup" aria-label="Trip type selection">
-              <input type="radio" class="btn-check" name="tripType" id="oneWay" value="oneWay" checked required>
-              <label class="btn btn-trip" for="oneWay">One way</label>
-
-              <input type="radio" class="btn-check" name="tripType" id="roundTrip" value="roundTrip" required>
-              <label class="btn btn-trip" for="roundTrip">Round trip</label>
+        <!-- Row 2: From and To (Floating labels) -->
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-md-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="fromStation" name="fromStation" placeholder="Astana" value="Astana" required>
+              <label for="fromStation">From</label>
             </div>
           </div>
-
-          <!-- Row 2: From and To (Floating labels, side by side on laptop, stacked on phone) -->
-          <div class="row g-3 mb-3">
-            <div class="col-12 col-md-6">
-              <div class="form-floating">
-                <input type="text" class="form-control" id="fromStation" name="fromStation" placeholder="Astana" value="Astana" required>
-                <label for="fromStation">From</label>
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="form-floating">
-                <input type="text" class="form-control" id="toStation" name="toStation" placeholder="Almaty" value="Almaty" required>
-                <label for="toStation">To</label>
-              </div>
+          <div class="col-12 col-md-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="toStation" name="toStation" placeholder="Almaty" value="Almaty" required>
+              <label for="toStation">To</label>
             </div>
           </div>
+        </div>
 
-          <!-- Row 3: Departure, Return, Passengers (3 cols on laptop, stacked on phone) -->
-          <div class="row g-3 mb-3">
-            <div class="col-12 col-md-4">
-              <label for="departureDate" class="form-label small text-muted fw-semibold mb-1">Departure</label>
-              <input type="date" class="form-control" id="departureDate" name="departureDate" required>
-            </div>
-            <div class="col-12 col-md-4">
-              <label for="returnDate" class="form-label small text-muted fw-semibold mb-1">Return</label>
-              <input type="date" class="form-control" id="returnDate" name="returnDate">
-            </div>
-            <div class="col-12 col-md-4">
-              <label for="passengersCount" class="form-label small text-muted fw-semibold mb-1">Passengers</label>
-              <select class="form-select" id="passengersCount" name="passengersCount" required>
-                <option value="1 adult" selected>1 adult</option>
-                <option value="2 adults">2 adults</option>
-                <option value="3 adults">3 adults</option>
-                <option value="4 adults">4 adults</option>
-                <option value="5 adults">5 adults</option>
-                <option value="6 adults">6 adults</option>
-              </select>
-            </div>
+        <!-- Row 3: Departure, Return, Passengers -->
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-md-4">
+            <label for="departureDate" class="form-label small text-muted fw-semibold mb-1">Departure</label>
+            <input type="date" class="form-control" id="departureDate" name="departureDate" required>
           </div>
-
-          <!-- Row 4: Carriage class (Radios: Seat, Coupé, Sleeper) -->
-          <div class="mb-3">
-            <div id="carriageClassLegend" class="form-label small text-muted fw-semibold mb-2">Carriage class</div>
-            <div class="d-flex flex-wrap gap-4" role="radiogroup" aria-labelledby="carriageClassLegend">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="carriageClass" id="classSeat" value="Seat" required>
-                <label class="form-check-label" for="classSeat">Seat</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="carriageClass" id="classCoupe" value="Coupe" checked required>
-                <label class="form-check-label" for="classCoupe">Coupé</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="carriageClass" id="classSleeper" value="Sleeper" required>
-                <label class="form-check-label" for="classSleeper">Sleeper</label>
-              </div>
-            </div>
+          <div class="col-12 col-md-4">
+            <label for="returnDate" class="form-label small text-muted fw-semibold mb-1">Return</label>
+            <input type="date" class="form-control" id="returnDate" name="returnDate">
           </div>
+          <div class="col-12 col-md-4">
+            <label for="passengersCount" class="form-label small text-muted fw-semibold mb-1">Passengers</label>
+            <select class="form-select" id="passengersCount" name="passengersCount" required>
+              <option value="1 adult" selected>1 adult</option>
+              <option value="2 adults">2 adults</option>
+              <option value="3 adults">3 adults</option>
+              <option value="4 adults">4 adults</option>
+              <option value="5 adults">5 adults</option>
+              <option value="6 adults">6 adults</option>
+            </select>
+          </div>
+        </div>
 
-          <!-- Row 5: Phone and Email (Input group +7 & Email) -->
-          <div class="row g-3 mb-3">
-            <div class="col-12 col-md-6">
-              <label for="phoneInput" class="form-label small text-muted fw-semibold mb-1">Phone</label>
-              <div class="input-group">
-                <span class="input-group-text custom-prefix-box" id="phonePrefix">+7</span>
-                <input type="tel" class="form-control" id="phoneInput" name="phone" placeholder="701 234 56 78" aria-describedby="phonePrefix" required>
-              </div>
+        <!-- Row 4: Carriage class (Seat, Coupe, Sleeper) -->
+        <div class="mb-3">
+          <div id="carriageClassLegend" class="form-label small text-muted fw-semibold mb-2">Carriage class</div>
+          <div class="d-flex flex-wrap gap-4" role="radiogroup" aria-labelledby="carriageClassLegend">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="carriageClass" id="classSeat" value="Seat" required>
+              <label class="form-check-label" for="classSeat">Seat</label>
             </div>
-            <div class="col-12 col-md-6">
-              <label for="emailInput" class="form-label small text-muted fw-semibold mb-1">Email</label>
-              <input type="email" class="form-control" id="emailInput" name="email" placeholder="name@example.com" required>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="carriageClass" id="classCoupe" value="Coupe" checked required>
+              <label class="form-check-label" for="classCoupe">Coupé</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="carriageClass" id="classSleeper" value="Sleeper" required>
+              <label class="form-check-label" for="classSleeper">Sleeper</label>
             </div>
           </div>
+        </div>
 
-          <!-- Row 6: SMS Switch & Rules Agreement -->
-          <div class="form-check form-switch mb-2">
-            <input class="form-check-input" type="checkbox" role="switch" id="smsTicket" name="smsTicket">
-            <label class="form-check-label small text-muted" for="smsTicket">Also send the ticket by SMS</label>
+        <!-- Row 5: Phone and Email -->
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-md-6">
+            <label for="phoneInput" class="form-label small text-muted fw-semibold mb-1">Phone</label>
+            <div class="input-group">
+              <span class="input-group-text custom-prefix-box" id="phonePrefix">+7</span>
+              <input type="tel" class="form-control" id="phoneInput" name="phone" placeholder="701 234 56 78" aria-describedby="phonePrefix" required>
+            </div>
           </div>
-
-          <div class="form-check mb-4">
-            <input class="form-check-input" type="checkbox" id="carriageRules" name="carriageRules" required>
-            <label class="form-check-label small text-muted" for="carriageRules">I agree with the carriage rules</label>
+          <div class="col-12 col-md-6">
+            <label for="emailInput" class="form-label small text-muted fw-semibold mb-1">Email</label>
+            <input type="email" class="form-control" id="emailInput" name="email" placeholder="name@example.com" required>
           </div>
+        </div>
 
-          <!-- Row 7: Action Buttons
-               Requirement: On a phone "Find trains" is above "Clear" WITHOUT changing the HTML order!
-               Solution: flex-column-reverse on mobile (< 768px), flex-md-row on desktop (>= 768px).
-               "Clear" is a type="reset" button that natively empties the form.
-          -->
-          <div class="d-flex flex-column-reverse flex-md-row justify-content-md-end gap-2 gap-md-3 mt-4">
-            <button type="reset" class="btn btn-clear w-100 w-md-auto">Clear</button>
-            <button type="submit" class="btn btn-find-trains w-100 w-md-auto">Find trains</button>
-          </div>
+        <!-- Row 6: Switch & Checkbox -->
+        <div class="form-check form-switch mb-2">
+          <input class="form-check-input" type="checkbox" role="switch" id="smsTicket" name="smsTicket">
+          <label class="form-check-label small text-muted" for="smsTicket">Also send the ticket by SMS</label>
+        </div>
 
-        </form>
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="checkbox" id="carriageRules" name="carriageRules" required>
+          <label class="form-check-label small text-muted" for="carriageRules">I agree with the carriage rules</label>
+        </div>
 
-      </div>
+        <!-- Row 7: Buttons: on phone Find trains is above Clear without changing HTML order -->
+        <div class="d-flex flex-column-reverse flex-md-row justify-content-md-end gap-2 gap-md-3 mt-4">
+          <button type="reset" class="btn btn-clear w-100 w-md-auto">Clear</button>
+          <button type="submit" class="btn btn-find-trains w-100 w-md-auto">Find trains</button>
+        </div>
+
+      </form>
 
     </div>
 
-  </main>
-
-  <footer class="text-center py-4 text-muted small">
-    Assignment #4 • Web Technologies • Beisenbay Estai (IT-2511)
-  </footer>
+  </div>
 
 </body>
 </html>

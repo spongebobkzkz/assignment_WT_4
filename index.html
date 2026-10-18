@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment #4: Forms and Validation — Beisenbay Estai (IT-2511)</title>
+  <title>SPEED CARGO — Forms & Validation | Assignment #4</title>
   
   <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -12,263 +12,532 @@
   <link rel="stylesheet" href="css/custom.css">
   
   <style>
-    /* Cargo Hero & Hub Styles */
-    .hero-cargo-banner {
-      background: linear-gradient(135deg, #0B0F17 0%, #131A26 50%, #0F6B5F 100%);
-      color: #FFFFFF;
-      border-radius: 28px;
-      padding: 40px 32px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+    .tab-content-pane {
+      display: none;
     }
-    .hero-cargo-banner::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, rgba(255, 184, 0, 0.15) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .cargo-feature-card {
-      background: #FFFFFF;
-      border-radius: 20px;
-      border: 1px solid #E2E8F0;
-      padding: 28px;
-      transition: all 0.25s ease;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .cargo-feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.09);
-      border-color: #CBD5E1;
-    }
-    .task-number-badge {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 0.3rem 0.75rem;
-      border-radius: 50rem;
-    }
-    .score-badge {
-      background-color: #FEF3C7;
-      color: #92400E;
-      font-weight: 700;
-      font-size: 0.8rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 50rem;
+    .tab-content-pane.active {
+      display: block;
     }
   </style>
 </head>
-<body>
+<body style="background-color: #0B0F17; color: #FFFFFF; min-height: 100vh;">
 
   <!-- Cargo Navigation Header -->
-  <nav class="cargo-nav py-2.5">
+  <header class="cargo-nav py-2.5">
     <div class="container-fluid px-3 px-md-4 d-flex flex-wrap align-items-center justify-content-between gap-2">
-      <a href="index.html" class="d-flex align-items-center text-decoration-none cargo-brand-logo gap-2">
+      <div class="d-flex align-items-center cargo-brand-logo gap-2">
         <span class="fs-4">⚡</span>
         <div>
-          <div>SWIFTCARGO / AITU</div>
-          <div style="font-size: 0.65rem; color: #94A3B8; font-weight: 500; letter-spacing: 0.08em;">ASSIGNMENT #4 • WT</div>
+          <div class="fw-bold tracking-wide text-warning" style="font-size: 1.05rem;">SPEED CARGO</div>
+          <div style="font-size: 0.65rem; color: #94A3B8; font-weight: 500; letter-spacing: 0.08em;">FORMS &amp; VALIDATION • AITU</div>
         </div>
-      </a>
-      
-      <div class="d-flex align-items-center flex-wrap gap-2">
-        <a href="index.html" class="cargo-nav-link active text-decoration-none">Overview</a>
-        <a href="task1.html" class="cargo-nav-link text-decoration-none">Task 1 (Train Ticket)</a>
-        <a href="task2.html" class="cargo-nav-link text-decoration-none">Task 2 (Validation)</a>
-        <a href="task3.html" class="cargo-nav-link text-decoration-none">Task 3 (Fix Form)</a>
       </div>
+      
+      <!-- Nav Tabs -->
+      <nav class="d-flex align-items-center flex-wrap gap-1 bg-dark p-1 rounded-3 border border-secondary border-opacity-25">
+        <button type="button" class="cargo-nav-link active border-0" onclick="showTab('train')">🚆 Train Ticket</button>
+        <button type="button" class="cargo-nav-link border-0" onclick="showTab('hackathon')">💻 Hackathon Form</button>
+        <button type="button" class="cargo-nav-link border-0" onclick="showTab('cafe')">🍽️ Table Reservation</button>
+      </nav>
 
-      <div class="student-badge d-none d-lg-block">
-        👤 Beisenbay Estai • IT-2511
+      <div class="d-flex align-items-center gap-2">
+        <a href="Assignment4_Beisenbay_Estai.pdf" download class="btn btn-sm btn-outline-warning rounded-pill px-3 fw-semibold">
+          📥 Report PDF
+        </a>
+        <div class="student-badge d-none d-lg-block">
+          👤 Beisenbay Estai • IT-2511
+        </div>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Main Container -->
+  <!-- Main Content Container -->
   <main class="container py-4 py-md-5">
 
-    <!-- Hero Section with Cargo Luxury Style -->
-    <section class="hero-cargo-banner mb-5">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-lg-8">
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="badge bg-warning text-dark fw-bold px-3 py-1.5 rounded-pill">ASTANA IT UNIVERSITY</span>
-            <span class="badge bg-light text-dark fw-semibold px-3 py-1.5 rounded-pill">Web Technologies</span>
-            <span class="badge bg-dark border border-secondary text-light px-3 py-1.5 rounded-pill">No JavaScript • No novalidate</span>
-          </div>
-          <h1 class="display-6 fw-bold mb-2">Assignment #4: Forms &amp; Validation</h1>
-          <p class="text-light opacity-75 lead fs-6 mb-4">
-            A comprehensive implementation of responsive Bootstrap form components, native HTML5 validation constraints, and usability/accessibility engineering for web applications.
-          </p>
-          <div class="d-flex flex-wrap gap-3">
-            <a href="task1.html" class="btn btn-warning fw-bold rounded-pill px-4 py-2 shadow-sm">Start with Task 1 ➔</a>
-            <a href="task2.html" class="btn btn-outline-light rounded-pill px-4 py-2">Task 2 Validation</a>
-            <a href="task3.html" class="btn btn-outline-light rounded-pill px-4 py-2">Task 3 Usability</a>
-          </div>
-        </div>
+    <!-- ==================== TAB 1: TRAIN TICKET ==================== -->
+    <div id="tab-train" class="tab-content-pane active">
+      <div class="train-booking-wrapper">
         
-        <div class="col-12 col-lg-4 text-lg-end">
-          <div class="bg-black bg-opacity-40 p-3 rounded-4 border border-white border-opacity-10 text-start">
-            <div class="text-uppercase small text-warning fw-bold mb-2">Student Information</div>
-            <div class="text-white fw-bold fs-5">Beisenbay Estai</div>
-            <div class="text-light opacity-75 small mb-2">Group: IT-2511</div>
-            <hr class="border-secondary my-2">
-            <div class="d-flex justify-content-between text-light small">
-              <span>Semester:</span>
-              <span class="fw-semibold text-white">2nd Year / 1st Trimester</span>
-            </div>
-            <div class="d-flex justify-content-between text-light small mt-1">
-              <span>Assessment:</span>
-              <span class="fw-semibold text-warning">100 Points Total</span>
-            </div>
+        <div class="train-card" style="color: #16302B;">
+          
+          <div class="train-header-banner">
+            Book a train ticket
           </div>
+
+          <form action="#" method="post">
+            
+            <!-- Row 1: Trip Type Radios -->
+            <div class="mb-4">
+              <div class="trip-type-segmented" role="radiogroup" aria-label="Trip type selection">
+                <input type="radio" class="btn-check" name="tripType" id="oneWay" value="oneWay" checked required>
+                <label class="btn btn-trip" for="oneWay">One way</label>
+
+                <input type="radio" class="btn-check" name="tripType" id="roundTrip" value="roundTrip" required>
+                <label class="btn btn-trip" for="roundTrip">Round trip</label>
+              </div>
+            </div>
+
+            <!-- Row 2: From & To -->
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="fromStation" name="fromStation" placeholder="Astana" value="Astana" required>
+                  <label for="fromStation">From</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="toStation" name="toStation" placeholder="Almaty" value="Almaty" required>
+                  <label for="toStation">To</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3: Departure, Return, Passengers -->
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-4">
+                <label for="departureDate" class="form-label small text-muted fw-semibold mb-1">Departure</label>
+                <input type="date" class="form-control" id="departureDate" name="departureDate" required>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="returnDate" class="form-label small text-muted fw-semibold mb-1">Return</label>
+                <input type="date" class="form-control" id="returnDate" name="returnDate">
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="passengersCount" class="form-label small text-muted fw-semibold mb-1">Passengers</label>
+                <select class="form-select" id="passengersCount" name="passengersCount" required>
+                  <option value="1 adult" selected>1 adult</option>
+                  <option value="2 adults">2 adults</option>
+                  <option value="3 adults">3 adults</option>
+                  <option value="4 adults">4 adults</option>
+                  <option value="5 adults">5 adults</option>
+                  <option value="6 adults">6 adults</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Row 4: Carriage class -->
+            <div class="mb-3">
+              <div id="carriageClassLegend" class="form-label small text-muted fw-semibold mb-2">Carriage class</div>
+              <div class="d-flex flex-wrap gap-4" role="radiogroup" aria-labelledby="carriageClassLegend">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="carriageClass" id="classSeat" value="Seat" required>
+                  <label class="form-check-label" for="classSeat">Seat</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="carriageClass" id="classCoupe" value="Coupe" checked required>
+                  <label class="form-check-label" for="classCoupe">Coupé</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="carriageClass" id="classSleeper" value="Sleeper" required>
+                  <label class="form-check-label" for="classSleeper">Sleeper</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 5: Phone & Email -->
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <label for="phoneInput" class="form-label small text-muted fw-semibold mb-1">Phone</label>
+                <div class="input-group">
+                  <span class="input-group-text custom-prefix-box" id="phonePrefix">+7</span>
+                  <input type="tel" class="form-control" id="phoneInput" name="phone" placeholder="701 234 56 78" aria-describedby="phonePrefix" required>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="emailInput" class="form-label small text-muted fw-semibold mb-1">Email</label>
+                <input type="email" class="form-control" id="emailInput" name="email" placeholder="name@example.com" required>
+              </div>
+            </div>
+
+            <!-- Row 6: SMS Switch & Rules Agreement -->
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" role="switch" id="smsTicket" name="smsTicket">
+              <label class="form-check-label small text-muted" for="smsTicket">Also send the ticket by SMS</label>
+            </div>
+
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" id="carriageRules" name="carriageRules" required>
+              <label class="form-check-label small text-muted" for="carriageRules">I agree with the carriage rules</label>
+            </div>
+
+            <!-- Row 7: Buttons (Find trains above Clear on mobile) -->
+            <div class="d-flex flex-column-reverse flex-md-row justify-content-md-end gap-2 gap-md-3 mt-4">
+              <button type="reset" class="btn btn-clear w-100 w-md-auto">Clear</button>
+              <button type="submit" class="btn btn-find-trains w-100 w-md-auto">Find trains</button>
+            </div>
+
+          </form>
+
         </div>
-      </div>
-    </section>
 
-    <!-- Task Cards Grid -->
-    <section class="mb-5">
-      <div class="text-center mb-4">
-        <h2 class="fw-bold h3 mb-1">Project Modules</h2>
-        <p class="text-muted small">Select any task below to inspect the interactive solution, validation rules, and accessibility tables.</p>
-      </div>
+        <div class="text-center mt-3">
+          <a href="task1.html" class="text-secondary small text-decoration-none">Open standalone page ➔</a>
+        </div>
 
-      <div class="row g-4">
+      </div>
+    </div>
+
+    <!-- ==================== TAB 2: HACKATHON REGISTRATION ==================== -->
+    <div id="tab-hackathon" class="tab-content-pane">
+      <div class="task2-wrapper">
         
-        <!-- Task 1 Card -->
-        <div class="col-12 col-md-4">
-          <div class="cargo-feature-card">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="task-number-badge bg-primary-subtle text-primary">Task 1</span>
-                <span class="score-badge">15 Points</span>
+        <div class="task2-card mb-5" style="color: #16302B;">
+          <h2 class="h4 fw-bold mb-3 text-center">Registration for AITU Hack 2026</h2>
+          <p class="text-muted small text-center mb-4">All rules enforced purely with native HTML attributes.</p>
+
+          <form class="task2-form" action="#" method="post">
+            <div class="row g-3">
+              
+              <div class="col-12 col-md-6">
+                <label for="tab2FullName" class="form-label fw-semibold small">Full name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="tab2FullName" name="fullName" minlength="2" maxlength="40" placeholder="e.g. Anna-Maria Lee" required>
+                <div class="invalid-feedback">Must be between 2 and 40 characters.</div>
               </div>
-              <h3 class="h5 fw-bold mb-2">Book a Train Ticket</h3>
-              <p class="text-muted small mb-3">
-                Exact reproduction of the ticket booking design. Montserrat typography, official colors (<span class="badge text-bg-light border">#0F6B5F</span>, <span class="badge text-bg-light border">#F2A93B</span>), segmented radio button toggle, floating labels, and phone responsive flex reversal.
-              </p>
-              <ul class="small text-muted ps-3 mb-4">
-                <li>Two radio inputs for trip type</li>
-                <li>Responsive button order on phone</li>
-                <li>Reset button empties the form</li>
-                <li>Connected labels &amp; keyboard only</li>
-              </ul>
+
+              <div class="col-12 col-md-6">
+                <label for="tab2Email" class="form-label fw-semibold small">University email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="tab2Email" name="universityEmail" placeholder="e.g. a.fedenko@astanait.edu.kz" required>
+                <div class="invalid-feedback">Please provide a valid email address.</div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <label for="tab2Age" class="form-label fw-semibold small">Age <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="tab2Age" name="studentAge" min="16" max="30" step="1" placeholder="16–30" required>
+                <div class="invalid-feedback">Must be a whole number between 16 and 30.</div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <label for="tab2TeamSize" class="form-label fw-semibold small">Team size <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="tab2TeamSize" name="teamSize" min="1" max="4" step="1" placeholder="1–4" required>
+                <div class="invalid-feedback">Team size must be a whole number from 1 to 4.</div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <label for="tab2Track" class="form-label fw-semibold small">Track <span class="text-danger">*</span></label>
+                <select class="form-select" id="tab2Track" name="hackTrack" required>
+                  <option value="" disabled selected hidden>Choose...</option>
+                  <option value="Web">Web</option>
+                  <option value="Mobile">Mobile</option>
+                  <option value="AI">AI</option>
+                  <option value="GameDev">GameDev</option>
+                </select>
+                <div class="invalid-feedback">Please choose a track.</div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="tab2Arrival" class="form-label fw-semibold small">Arrival day <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="tab2Arrival" name="arrivalDay" min="2026-11-20" max="2026-11-22" required>
+                <div class="invalid-feedback">Arrival must be between 20 and 22 November 2026.</div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="tab2Checkin" class="form-label fw-semibold small">Check-in time <span class="text-danger">*</span></label>
+                <input type="time" class="form-control" id="tab2Checkin" name="checkinTime" min="09:00" max="18:00" step="1800" required>
+                <div class="invalid-feedback">Time must be 09:00–18:00 in 30-minute steps.</div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="tab2Fee" class="form-label fw-semibold small">Entry fee (₸) <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="tab2Fee" name="entryFee" min="0" max="5000" step="500" placeholder="0–5000 (steps of 500)" required>
+                <div class="invalid-feedback">Fee must be 0–5000 ₸ in steps of 500 ₸.</div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <fieldset>
+                  <legend class="form-label fw-semibold small mb-2 pt-0">Experience level <span class="text-danger">*</span></legend>
+                  <div class="d-flex flex-wrap gap-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="tab2Exp" id="tab2Exp1" value="Beginner" required>
+                      <label class="form-check-label" for="tab2Exp1">Beginner</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="tab2Exp" id="tab2Exp2" value="Intermediate" required>
+                      <label class="form-check-label" for="tab2Exp2">Intermediate</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="tab2Exp" id="tab2Exp3" value="Advanced" required>
+                      <label class="form-check-label" for="tab2Exp3">Advanced</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="tab2Github" class="form-label fw-semibold small">GitHub profile <span class="text-muted fw-normal">(optional)</span></label>
+                <input type="url" class="form-control" id="tab2Github" name="githubProfile" placeholder="https://github.com/username">
+                <div class="invalid-feedback">Must be a full valid link (e.g. https://github.com/...).</div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="tab2Pass" class="form-label fw-semibold small">Password <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" id="tab2Pass" name="accountPassword" minlength="8" maxlength="20" placeholder="8–20 characters" required>
+                <div class="invalid-feedback">Password must be 8–20 characters.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="tab2Motivation" class="form-label fw-semibold small">Motivation <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="tab2Motivation" name="motivationText" rows="3" minlength="50" maxlength="300" placeholder="50 to 300 characters..." required></textarea>
+                <div class="invalid-feedback">Motivation must be 50–300 characters.</div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="tab2Rules" name="rulesAgreement" required>
+                  <label class="form-check-label small fw-semibold" for="tab2Rules">
+                    I agree to the hackathon rules <span class="text-danger">*</span>
+                  </label>
+                  <div class="invalid-feedback">You must tick this checkbox.</div>
+                </div>
+              </div>
+
+              <div class="col-12 mt-4 text-end">
+                <button type="reset" class="btn btn-outline-secondary rounded-pill px-4 me-2">Reset</button>
+                <button type="submit" class="btn btn-success rounded-pill px-5 fw-bold shadow-sm">Submit</button>
+              </div>
+
             </div>
-            <a href="task1.html" class="btn btn-outline-dark rounded-pill w-100 fw-bold">Open Task 1 ➔</a>
+          </form>
+        </div>
+
+        <!-- Verification Table -->
+        <div class="card border-0 shadow-sm rounded-4 p-4 text-dark mb-3">
+          <h3 class="h5 fw-bold mb-3">HTML Validation Verification Table</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle mb-0">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">Field</th>
+                  <th scope="col">Rule</th>
+                  <th scope="col">Must accept</th>
+                  <th scope="col">Must reject</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Full name *</td><td>2–40 characters</td><td><span class="test-badge-accept">Anna-Maria Lee</span></td><td><span class="test-badge-reject">A</span></td></tr>
+                <tr><td>University email *</td><td>a valid email address</td><td><span class="test-badge-accept">a.fedenko@astanait.edu.kz</span></td><td><span class="test-badge-reject">a.fedenko</span>, <span class="test-badge-reject">a.fedenko@</span></td></tr>
+                <tr><td>Age *</td><td>a whole number from 16 to 30</td><td><span class="test-badge-accept">18</span></td><td><span class="test-badge-reject">15</span>, <span class="test-badge-reject">31</span></td></tr>
+                <tr><td>Team size *</td><td>a whole number from 1 to 4</td><td><span class="test-badge-accept">4</span></td><td><span class="test-badge-reject">5</span>, <span class="test-badge-reject">2.5</span></td></tr>
+                <tr><td>Track *</td><td>Web, Mobile, AI or GameDev</td><td><span class="test-badge-accept">Web</span></td><td><span class="test-badge-reject">“Choose…”</span></td></tr>
+                <tr><td>Arrival day *</td><td>20–22 November 2026</td><td><span class="test-badge-accept">21.11.2026</span></td><td><span class="test-badge-reject">25.11.2026</span></td></tr>
+                <tr><td>Check-in time *</td><td>09:00–18:00, every 30 minutes</td><td><span class="test-badge-accept">10:30</span></td><td><span class="test-badge-reject">10:15</span>, <span class="test-badge-reject">19:00</span></td></tr>
+                <tr><td>Entry fee *</td><td>0–5000 ₸, in steps of 500 ₸</td><td><span class="test-badge-accept">1500</span></td><td><span class="test-badge-reject">1250</span>, <span class="test-badge-reject">6000</span></td></tr>
+                <tr><td>Experience level *</td><td>one of three radio buttons</td><td><span class="test-badge-accept">Beginner</span></td><td><span class="test-badge-reject">nothing chosen</span></td></tr>
+                <tr><td>GitHub profile</td><td>optional, a full link</td><td><span class="test-badge-accept">(empty)</span>, <span class="test-badge-accept">https://github.com/yerassyl-dev</span></td><td><span class="test-badge-reject">github.com/yerassyl-dev</span></td></tr>
+                <tr><td>Password *</td><td>8–20 characters</td><td><span class="test-badge-accept">Astana2026</span></td><td><span class="test-badge-reject">short</span></td></tr>
+                <tr><td>Motivation *</td><td>50–300 characters</td><td><span class="test-badge-accept">120 characters</span></td><td><span class="test-badge-reject">49 characters</span></td></tr>
+                <tr><td>Rules agreement *</td><td>checkbox</td><td><span class="test-badge-accept">ticked</span></td><td><span class="test-badge-reject">not ticked</span></td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <!-- Task 2 Card -->
-        <div class="col-12 col-md-4">
-          <div class="cargo-feature-card">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="task-number-badge bg-success-subtle text-success">Task 2</span>
-                <span class="score-badge">15 Points</span>
-              </div>
-              <h3 class="h5 fw-bold mb-2">AITU Hack 2026 Registration</h3>
-              <p class="text-muted small mb-3">
-                Student hackathon registration form verified purely with native HTML5 attributes. Zero JavaScript, zero <code>novalidate</code>, and no <code>pattern</code> attribute.
-              </p>
-              <ul class="small text-muted ps-3 mb-4">
-                <li><code>:user-invalid</code> pseudo-classes</li>
-                <li>Date &amp; time step constraints (1800s)</li>
-                <li>Fee step (500 ₸) &amp; min/max range</li>
-                <li>Live verification test table</li>
-              </ul>
-            </div>
-            <a href="task2.html" class="btn btn-outline-dark rounded-pill w-100 fw-bold">Open Task 2 ➔</a>
-          </div>
-        </div>
-
-        <!-- Task 3 Card -->
-        <div class="col-12 col-md-4">
-          <div class="cargo-feature-card">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="task-number-badge bg-warning-subtle text-warning-emphasis">Task 3</span>
-                <span class="score-badge">15 Points</span>
-              </div>
-              <h3 class="h5 fw-bold mb-2">Fix a Bad Café Form</h3>
-              <p class="text-muted small mb-3">
-                Comprehensive audit and remediation of a broken café reservation form. Eliminates 12 critical usability, accessibility, and syntax defects. Fully passes the W3C Markup Validator.
-              </p>
-              <ul class="small text-muted ps-3 mb-4">
-                <li>12 problems analyzed from user perspective</li>
-                <li>2 problems with alternate fixes explained</li>
-                <li>Semantic <code>&lt;fieldset&gt;</code> &amp; <code>&lt;legend&gt;</code></li>
-                <li>Real submit button &amp; keyboard accessible</li>
-              </ul>
-            </div>
-            <a href="task3.html" class="btn btn-outline-dark rounded-pill w-100 fw-bold">Open Task 3 ➔</a>
-          </div>
+        <div class="text-center mt-3">
+          <a href="task2.html" class="text-secondary small text-decoration-none">Open standalone page ➔</a>
         </div>
 
       </div>
-    </section>
+    </div>
 
-    <!-- Assessment Criteria Breakdown -->
-    <section class="card border-0 shadow-sm rounded-4 p-4 mb-5">
-      <h2 class="h5 fw-bold mb-3">🎯 Assessment Criteria &amp; Grading Rubric (100 Points)</h2>
-      <div class="table-responsive">
-        <table class="table table-bordered align-middle mb-0">
-          <thead class="table-light">
-            <tr>
-              <th scope="col" style="width: 15%;">Criterion</th>
-              <th scope="col" style="width: 75%;">What is Checked</th>
-              <th scope="col" style="width: 10%;" class="text-center">Points</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="fw-bold">Task 1</td>
-              <td>Matches picture at 375px &amp; 1280px (components, colors, font, corners, buttons); everything from "Please note" works.</td>
-              <td class="text-center fw-bold text-success">15</td>
-            </tr>
-            <tr>
-              <td class="fw-bold">Task 2</td>
-              <td>Table values &amp; new instructor values give right result; HTML attributes only; errors appear after user changes a field.</td>
-              <td class="text-center fw-bold text-success">15</td>
-            </tr>
-            <tr>
-              <td class="fw-bold">Task 3</td>
-              <td>At least 10 real problems explained from user side; another possible fix for 2; fixed form passes W3C validator &amp; keyboard test.</td>
-              <td class="text-center fw-bold text-success">15</td>
-            </tr>
-            <tr>
-              <td class="fw-bold">Report</td>
-              <td>Contains everything in rules; readable screenshots; student explanations in own words; GitHub URL.</td>
-              <td class="text-center fw-bold text-success">5</td>
-            </tr>
-            <tr>
-              <td class="fw-bold">Defense</td>
-              <td>Live explanation &amp; demo without errors (10); answers instructor questions (15); independent live coding task (25).</td>
-              <td class="text-center fw-bold text-success">50</td>
-            </tr>
-            <tr class="table-dark">
-              <td class="fw-bold" colspan="2">Total Maximum Grade</td>
-              <td class="text-center fw-bold fs-5 text-warning">100</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- ==================== TAB 3: TABLE RESERVATION ==================== -->
+    <div id="tab-cafe" class="tab-content-pane">
+      <div class="task3-wrapper">
+        
+        <div class="task3-card mb-5" style="color: #16302B;">
+          <h2 class="h4 fw-bold mb-3 text-center">Reserve a Table (Fixed Form)</h2>
+          <p class="text-muted small text-center mb-4">Rebuilt with Bootstrap, 100% W3C Valid, Keyboard Navigable.</p>
+
+          <form action="#" method="post">
+            <div class="row g-3">
+              <div class="col-12 col-sm-6">
+                <label for="tab3Name" class="form-label fw-semibold small">Your Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="tab3Name" name="customerName" placeholder="Your name" required autocomplete="name">
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="tab3Email" class="form-label fw-semibold small">Email Address <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="tab3Email" name="customerEmail" placeholder="Email" required autocomplete="email">
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="tab3Phone" class="form-label fw-semibold small">Phone <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="tab3Phone" name="phone" placeholder="Phone" required autocomplete="tel">
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="tab3Guests" class="form-label fw-semibold small">Guests <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="tab3Guests" name="guests" min="1" max="30" step="1" value="2" required>
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="tab3Date" class="form-label fw-semibold small">Date <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="tab3Date" name="date" required>
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="tab3Meal" class="form-label fw-semibold small">Meal <span class="text-danger">*</span></label>
+                <select class="form-select" id="tab3Meal" name="meal" required>
+                  <option value="" disabled selected hidden>Choose...</option>
+                  <option value="Lunch">Lunch</option>
+                  <option value="Dinner">Dinner</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <fieldset>
+                  <legend class="form-label fw-semibold small mb-2 pt-0">Seating:</legend>
+                  <div class="d-flex flex-wrap gap-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="seatingTab3" id="tab3Inside" value="Inside" checked required>
+                      <label class="form-check-label" for="tab3Inside">Inside</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="seatingTab3" id="tab3Terrace" value="Terrace" required>
+                      <label class="form-check-label" for="tab3Terrace">Terrace</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="col-12">
+                <label for="tab3Comments" class="form-label fw-semibold small">Comments</label>
+                <textarea class="form-control" id="tab3Comments" name="comments" rows="3" placeholder="Comments"></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="tab3Terms" name="terms" required>
+                  <label class="form-check-label small fw-semibold" for="tab3Terms">
+                    I agree to the terms <span class="text-danger">*</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 mt-4 text-end">
+                <button type="submit" class="btn btn-primary rounded-pill px-5 fw-bold shadow-sm">Reserve</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Problems Table -->
+        <div class="card border-0 shadow-sm rounded-4 p-4 text-dark mb-3">
+          <h3 class="h5 fw-bold mb-3">Table of Problems (Found &amp; Fixed)</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle mb-0 problem-table">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 5%;">#</th>
+                  <th scope="col" style="width: 25%;">Line of code</th>
+                  <th scope="col" style="width: 35%;">Why it is a problem for the user</th>
+                  <th scope="col" style="width: 35%;">How you fixed it</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold text-center">1</td>
+                  <td><code>&lt;input type="text" placeholder="Your name"&gt;</code></td>
+                  <td>Missing label and name. Placeholder disappears when typing, screen readers cannot identify field, and name data is omitted on submission.</td>
+                  <td>Added <code>&lt;label for="tab3Name"&gt;Your Name&lt;/label&gt;</code> and <code>id="tab3Name" name="customerName" required autocomplete="name"</code>.</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-center">2</td>
+                  <td><code>&lt;input type="text" placeholder="Email"&gt;</code></td>
+                  <td><code>type="text"</code> does not bring up email keyboard with '@' key on mobile; browser email validation is disabled; missing label and name.</td>
+                  <td>Changed to <code>type="email"</code>, added connected label and <code>name="customerEmail" required</code>.</td>
+                </tr>
+                <tr class="table-info">
+                  <td class="fw-bold text-center">3</td>
+                  <td><code>&lt;label&gt;Phone&lt;/label&gt;</code><br><code>&lt;input type="text" id="phone"&gt;</code></td>
+                  <td>Label lacks <code>for="phone"</code>, so clicking 'Phone' does not focus the input. <code>type="text"</code> does not show numeric telephone keypad.</td>
+                  <td>
+                    <strong>How fixed:</strong> Added <code>for="tab3Phone"</code>, set <code>type="tel" name="phone" required</code>.<br>
+                    <strong>Alternative fix:</strong> Nest input inside label: <code>&lt;label&gt;Phone &lt;input type="tel"...&gt;&lt;/label&gt;</code>.<br>
+                    <strong>Why chosen:</strong> Bootstrap 5 styles and responsive grid work cleanest when label and control are separate elements.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-center">4</td>
+                  <td><code>&lt;label for="guests"&gt;Guests&lt;/label&gt;</code><br><code>&lt;input type="text" id="people"&gt;</code></td>
+                  <td>ID mismatch! Label points to 'guests' but input ID is 'people'. Clicking label fails. <code>type="text"</code> allows letters instead of numbers.</td>
+                  <td>Synchronized IDs: <code>for="tab3Guests"</code> matching <code>id="tab3Guests"</code>. Changed to <code>type="number" min="1" max="30" step="1" name="guests" required</code>.</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-center">5</td>
+                  <td><code>&lt;label for="date"&gt;Date&lt;/label&gt;</code><br><code>&lt;input type="text" id="date" placeholder="dd/mm/yyyy"&gt;</code></td>
+                  <td>Manual date typing leads to format mistakes; no datepicker; ID 'date' is duplicated in the radio button below!</td>
+                  <td>Changed to <code>type="date"</code>, assigned unique <code>id="tab3Date"</code> with connected label, added <code>name="date" required</code>.</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-center">6</td>
+                  <td><code>&lt;input type="radio" name="inside" id="date"&gt; Inside</code><br><code>&lt;input type="radio" name="terrace"&gt; Terrace</code></td>
+                  <td>Different names prevent mutual exclusion (user can select both or neither). Duplicate ID 'date'. Missing <code>&lt;label&gt;</code> tags.</td>
+                  <td>Unified <code>name="seating"</code> for both radios, gave unique IDs, added proper labels and values.</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-center">7</td>
+                  <td><code>&lt;p&gt;Seating:&lt;/p&gt;</code></td>
+                  <td>Unsemantic paragraph gives no programmatic association to the radio options for screen reader users.</td>
+                  <td>Replaced with semantic <code>&lt;fieldset&gt;&lt;legend class="form-label..."&gt;Seating:&lt;/legend&gt;...&lt;/fieldset&gt;</code>.</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-center">8</td>
+                  <td><code>&lt;select&gt;...&lt;/select&gt;</code></td>
+                  <td>Unlabeled dropdown violates WCAG 2.1 accessibility. Missing name attribute causes data to be lost during submission.</td>
+                  <td>Added <code>&lt;label for="tab3Meal"&gt;Meal&lt;/label&gt;</code>, <code>id="tab3Meal" name="meal" required</code>, and explicit option values.</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-center">9</td>
+                  <td><code>&lt;textarea placeholder="Comments"&gt;&lt;/textarea&gt;</code></td>
+                  <td>Missing label, missing id, missing name. Text entered cannot be identified by screen readers or sent to the server.</td>
+                  <td>Added <code>&lt;label for="tab3Comments"&gt;Comments&lt;/label&gt;</code>, <code>id="tab3Comments" name="comments" rows="3"</code>.</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-center">10</td>
+                  <td><code>&lt;input type="checkbox"&gt; I agree to the terms</code></td>
+                  <td>Unlinked label. Users cannot click text to toggle checkbox. Missing name and required attribute.</td>
+                  <td>Structured with Bootstrap <code>.form-check</code>: <code>&lt;input type="checkbox" class="form-check-input" id="tab3Terms" name="terms" required&gt;</code> and <code>&lt;label for="tab3Terms"&gt;</code>.</td>
+                </tr>
+                <tr class="table-info">
+                  <td class="fw-bold text-center">11</td>
+                  <td><code>&lt;div class="btn btn-primary"&gt;Reserve&lt;/div&gt;</code></td>
+                  <td>A <code>&lt;div&gt;</code> cannot receive keyboard focus via Tab, cannot be pressed with Enter, and NEVER submits the form! Data is never sent.</td>
+                  <td>
+                    <strong>How fixed:</strong> Replaced with genuine HTML <code>&lt;button type="submit" class="btn btn-primary rounded-pill px-5 fw-bold"&gt;Reserve&lt;/button&gt;</code>.<br>
+                    <strong>Alternative fix:</strong> Use <code>&lt;input type="submit" value="Reserve" class="btn btn-primary"&gt;</code>.<br>
+                    <strong>Why chosen:</strong> <code>&lt;button&gt;</code> is more flexible, supports child HTML/icons, and is Bootstrap 5 recommended practice.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-center">12</td>
+                  <td><code>&lt;form&gt;</code></td>
+                  <td>Missing action and method attributes. Defaults to GET, exposing customer reservation parameters in the browser URL.</td>
+                  <td>Added <code>action="#" method="post"</code>.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="text-center mt-3">
+          <a href="task3.html" class="text-secondary small text-decoration-none">Open standalone page ➔</a>
+        </div>
+
       </div>
-    </section>
+    </div>
 
   </main>
 
-  <footer class="text-center py-4 text-muted small">
-    Assignment #4 • Web Technologies • Beisenbay Estai (IT-2511) • Astana IT University
+  <footer class="text-center py-4 text-secondary small border-top border-secondary border-opacity-10">
+    Beisenbay Estai • IT-2511 • Web Technologies • Astana IT University
   </footer>
+
+  <!-- Tab Switcher Script (Native, no form manipulation) -->
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.cargo-nav-link').forEach(el => el.classList.remove('active'));
+      
+      const pane = document.getElementById('tab-' + tabId);
+      if (pane) pane.classList.add('active');
+      
+      const btns = document.querySelectorAll('.cargo-nav-link');
+      if (tabId === 'train') btns[0].classList.add('active');
+      if (tabId === 'hackathon') btns[1].classList.add('active');
+      if (tabId === 'cafe') btns[2].classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
