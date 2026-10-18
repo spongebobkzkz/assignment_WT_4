@@ -39,12 +39,6 @@
         <button type="button" class="cargo-nav-link border-0" onclick="showTab('hackathon')">💻 Hackathon Form</button>
         <button type="button" class="cargo-nav-link border-0" onclick="showTab('cafe')">🍽️ Table Reservation</button>
       </nav>
-
-      <div class="d-flex align-items-center gap-2">
-        <div class="student-badge">
-          👤 Beisenbay Estai • IT-2511
-        </div>
-      </div>
     </div>
   </header>
 
@@ -297,42 +291,6 @@
           </form>
         </div>
 
-        <!-- Verification Table -->
-        <div class="card border-0 shadow-sm rounded-4 p-4 text-dark mb-3">
-          <h3 class="h5 fw-bold mb-3">HTML Validation Verification Table</h3>
-          <div class="table-responsive">
-            <table class="table table-bordered table-hover align-middle mb-0">
-              <thead class="table-dark">
-                <tr>
-                  <th scope="col">Field</th>
-                  <th scope="col">Rule</th>
-                  <th scope="col">Must accept</th>
-                  <th scope="col">Must reject</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Full name *</td><td>2–40 characters</td><td><span class="test-badge-accept">Anna-Maria Lee</span></td><td><span class="test-badge-reject">A</span></td></tr>
-                <tr><td>University email *</td><td>a valid email address</td><td><span class="test-badge-accept">a.fedenko@astanait.edu.kz</span></td><td><span class="test-badge-reject">a.fedenko</span>, <span class="test-badge-reject">a.fedenko@</span></td></tr>
-                <tr><td>Age *</td><td>a whole number from 16 to 30</td><td><span class="test-badge-accept">18</span></td><td><span class="test-badge-reject">15</span>, <span class="test-badge-reject">31</span></td></tr>
-                <tr><td>Team size *</td><td>a whole number from 1 to 4</td><td><span class="test-badge-accept">4</span></td><td><span class="test-badge-reject">5</span>, <span class="test-badge-reject">2.5</span></td></tr>
-                <tr><td>Track *</td><td>Web, Mobile, AI or GameDev</td><td><span class="test-badge-accept">Web</span></td><td><span class="test-badge-reject">“Choose…”</span></td></tr>
-                <tr><td>Arrival day *</td><td>20–22 November 2026</td><td><span class="test-badge-accept">21.11.2026</span></td><td><span class="test-badge-reject">25.11.2026</span></td></tr>
-                <tr><td>Check-in time *</td><td>09:00–18:00, every 30 minutes</td><td><span class="test-badge-accept">10:30</span></td><td><span class="test-badge-reject">10:15</span>, <span class="test-badge-reject">19:00</span></td></tr>
-                <tr><td>Entry fee *</td><td>0–5000 ₸, in steps of 500 ₸</td><td><span class="test-badge-accept">1500</span></td><td><span class="test-badge-reject">1250</span>, <span class="test-badge-reject">6000</span></td></tr>
-                <tr><td>Experience level *</td><td>one of three radio buttons</td><td><span class="test-badge-accept">Beginner</span></td><td><span class="test-badge-reject">nothing chosen</span></td></tr>
-                <tr><td>GitHub profile</td><td>optional, a full link</td><td><span class="test-badge-accept">(empty)</span>, <span class="test-badge-accept">https://github.com/yerassyl-dev</span></td><td><span class="test-badge-reject">github.com/yerassyl-dev</span></td></tr>
-                <tr><td>Password *</td><td>8–20 characters</td><td><span class="test-badge-accept">Astana2026</span></td><td><span class="test-badge-reject">short</span></td></tr>
-                <tr><td>Motivation *</td><td>50–300 characters</td><td><span class="test-badge-accept">120 characters</span></td><td><span class="test-badge-reject">49 characters</span></td></tr>
-                <tr><td>Rules agreement *</td><td>checkbox</td><td><span class="test-badge-accept">ticked</span></td><td><span class="test-badge-reject">not ticked</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="text-center mt-3">
-          <a href="task2.html" class="text-secondary small text-decoration-none">Open standalone page ➔</a>
-        </div>
-
       </div>
     </div>
 
@@ -408,116 +366,13 @@
           </form>
         </div>
 
-        <!-- Problems Table -->
-        <div class="card border-0 shadow-sm rounded-4 p-4 text-dark mb-3">
-          <h3 class="h5 fw-bold mb-3">Table of Problems (Found &amp; Fixed)</h3>
-          <div class="table-responsive">
-            <table class="table table-bordered table-hover align-middle mb-0 problem-table">
-              <thead>
-                <tr>
-                  <th scope="col" style="width: 5%;">#</th>
-                  <th scope="col" style="width: 25%;">Line of code</th>
-                  <th scope="col" style="width: 35%;">Why it is a problem for the user</th>
-                  <th scope="col" style="width: 35%;">How you fixed it</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="fw-bold text-center">1</td>
-                  <td><code>&lt;input type="text" placeholder="Your name"&gt;</code></td>
-                  <td>Missing label and name. Placeholder disappears when typing, screen readers cannot identify field, and name data is omitted on submission.</td>
-                  <td>Added <code>&lt;label for="tab3Name"&gt;Your Name&lt;/label&gt;</code> and <code>id="tab3Name" name="customerName" required autocomplete="name"</code>.</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold text-center">2</td>
-                  <td><code>&lt;input type="text" placeholder="Email"&gt;</code></td>
-                  <td><code>type="text"</code> does not bring up email keyboard with '@' key on mobile; browser email validation is disabled; missing label and name.</td>
-                  <td>Changed to <code>type="email"</code>, added connected label and <code>name="customerEmail" required</code>.</td>
-                </tr>
-                <tr class="table-info">
-                  <td class="fw-bold text-center">3</td>
-                  <td><code>&lt;label&gt;Phone&lt;/label&gt;</code><br><code>&lt;input type="text" id="phone"&gt;</code></td>
-                  <td>Label lacks <code>for="phone"</code>, so clicking 'Phone' does not focus the input. <code>type="text"</code> does not show numeric telephone keypad.</td>
-                  <td>
-                    <strong>How fixed:</strong> Added <code>for="tab3Phone"</code>, set <code>type="tel" name="phone" required</code>.<br>
-                    <strong>Alternative fix:</strong> Nest input inside label: <code>&lt;label&gt;Phone &lt;input type="tel"...&gt;&lt;/label&gt;</code>.<br>
-                    <strong>Why chosen:</strong> Bootstrap 5 styles and responsive grid work cleanest when label and control are separate elements.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="fw-bold text-center">4</td>
-                  <td><code>&lt;label for="guests"&gt;Guests&lt;/label&gt;</code><br><code>&lt;input type="text" id="people"&gt;</code></td>
-                  <td>ID mismatch! Label points to 'guests' but input ID is 'people'. Clicking label fails. <code>type="text"</code> allows letters instead of numbers.</td>
-                  <td>Synchronized IDs: <code>for="tab3Guests"</code> matching <code>id="tab3Guests"</code>. Changed to <code>type="number" min="1" max="30" step="1" name="guests" required</code>.</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold text-center">5</td>
-                  <td><code>&lt;label for="date"&gt;Date&lt;/label&gt;</code><br><code>&lt;input type="text" id="date" placeholder="dd/mm/yyyy"&gt;</code></td>
-                  <td>Manual date typing leads to format mistakes; no datepicker; ID 'date' is duplicated in the radio button below!</td>
-                  <td>Changed to <code>type="date"</code>, assigned unique <code>id="tab3Date"</code> with connected label, added <code>name="date" required</code>.</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold text-center">6</td>
-                  <td><code>&lt;input type="radio" name="inside" id="date"&gt; Inside</code><br><code>&lt;input type="radio" name="terrace"&gt; Terrace</code></td>
-                  <td>Different names prevent mutual exclusion (user can select both or neither). Duplicate ID 'date'. Missing <code>&lt;label&gt;</code> tags.</td>
-                  <td>Unified <code>name="seating"</code> for both radios, gave unique IDs, added proper labels and values.</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold text-center">7</td>
-                  <td><code>&lt;p&gt;Seating:&lt;/p&gt;</code></td>
-                  <td>Unsemantic paragraph gives no programmatic association to the radio options for screen reader users.</td>
-                  <td>Replaced with semantic <code>&lt;fieldset&gt;&lt;legend class="form-label..."&gt;Seating:&lt;/legend&gt;...&lt;/fieldset&gt;</code>.</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold text-center">8</td>
-                  <td><code>&lt;select&gt;...&lt;/select&gt;</code></td>
-                  <td>Unlabeled dropdown violates WCAG 2.1 accessibility. Missing name attribute causes data to be lost during submission.</td>
-                  <td>Added <code>&lt;label for="tab3Meal"&gt;Meal&lt;/label&gt;</code>, <code>id="tab3Meal" name="meal" required</code>, and explicit option values.</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold text-center">9</td>
-                  <td><code>&lt;textarea placeholder="Comments"&gt;&lt;/textarea&gt;</code></td>
-                  <td>Missing label, missing id, missing name. Text entered cannot be identified by screen readers or sent to the server.</td>
-                  <td>Added <code>&lt;label for="tab3Comments"&gt;Comments&lt;/label&gt;</code>, <code>id="tab3Comments" name="comments" rows="3"</code>.</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold text-center">10</td>
-                  <td><code>&lt;input type="checkbox"&gt; I agree to the terms</code></td>
-                  <td>Unlinked label. Users cannot click text to toggle checkbox. Missing name and required attribute.</td>
-                  <td>Structured with Bootstrap <code>.form-check</code>: <code>&lt;input type="checkbox" class="form-check-input" id="tab3Terms" name="terms" required&gt;</code> and <code>&lt;label for="tab3Terms"&gt;</code>.</td>
-                </tr>
-                <tr class="table-info">
-                  <td class="fw-bold text-center">11</td>
-                  <td><code>&lt;div class="btn btn-primary"&gt;Reserve&lt;/div&gt;</code></td>
-                  <td>A <code>&lt;div&gt;</code> cannot receive keyboard focus via Tab, cannot be pressed with Enter, and NEVER submits the form! Data is never sent.</td>
-                  <td>
-                    <strong>How fixed:</strong> Replaced with genuine HTML <code>&lt;button type="submit" class="btn btn-primary rounded-pill px-5 fw-bold"&gt;Reserve&lt;/button&gt;</code>.<br>
-                    <strong>Alternative fix:</strong> Use <code>&lt;input type="submit" value="Reserve" class="btn btn-primary"&gt;</code>.<br>
-                    <strong>Why chosen:</strong> <code>&lt;button&gt;</code> is more flexible, supports child HTML/icons, and is Bootstrap 5 recommended practice.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="fw-bold text-center">12</td>
-                  <td><code>&lt;form&gt;</code></td>
-                  <td>Missing action and method attributes. Defaults to GET, exposing customer reservation parameters in the browser URL.</td>
-                  <td>Added <code>action="#" method="post"</code>.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="text-center mt-3">
-          <a href="task3.html" class="text-secondary small text-decoration-none">Open standalone page ➔</a>
-        </div>
-
       </div>
     </div>
 
   </main>
 
   <footer class="text-center py-4 text-secondary small border-top border-secondary border-opacity-10">
-    Beisenbay Estai • IT-2511 • Web Technologies • Astana IT University
+    &copy; 2026 Speed Cargo Logistics • Forms &amp; Validation
   </footer>
 
   <!-- Tab Switcher Script (Native, no form manipulation) -->
