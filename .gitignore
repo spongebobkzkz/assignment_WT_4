@@ -1,0 +1,8 @@
+# Ignore reports and temporary files
+*.pdf
+*.docx
+*.ps1
+take_screenshots.js
+~*
+.DS_Store
+Thumbs.db
