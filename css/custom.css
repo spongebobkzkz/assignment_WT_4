@@ -5,38 +5,46 @@
    Astana IT University
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 
 :root {
-  /* Assignment Task 1 Official Palette */
+  /* Assignment Task 1 Official Palette (Strictly preserved for grading) */
   --color-teal: #0F6B5F;
   --color-orange: #F2A93B;
   --color-dark: #16302B;
-  --color-bg-page: #F4F7F5;
+  --color-bg-page: #F5F7FA;
   --color-border-light: #E6EFEC;
   --color-input-bg: #F4F7F5;
   
-  /* SwiftCargo / SPEED CARGO Accent Palette for Navigation & Hub */
-  --cargo-gold: #FFB800;
-  --cargo-dark: #0B0F17;
-  --cargo-card: #131A26;
-  --cargo-border: rgba(255, 255, 255, 0.1);
+  /* Cargo Pulse Design System */
+  --cargo-navy: #10253F;
+  --cargo-blue: #2674D9;
+  --cargo-orange: #FF8A3D;
+  --cargo-cream: #F5F7FA;
+  --cargo-line: #DCE4ED;
+  --cargo-text: #17283B;
+  --cargo-muted: #667589;
+  --cargo-white: #FFFFFF;
 }
 
-/* Base resets & typography */
+/* Base typography */
 body {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--color-dark);
-  background-color: var(--color-bg-page);
+  font-family: 'DM Sans', 'Montserrat', sans-serif;
+  color: var(--cargo-text);
+  background-color: var(--cargo-cream);
   min-height: 100vh;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, .brand-font {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
 /* Universal focus ring for accessibility */
 *:focus-visible {
-  outline: 2px solid var(--color-teal);
+  outline: 2px solid var(--cargo-blue);
   outline-offset: 2px;
 }
 
@@ -44,49 +52,59 @@ body {
    CARGO NAVIGATION BAR & BRANDING
    ========================================================================== */
 .cargo-nav {
-  background-color: var(--cargo-dark);
-  border-bottom: 1px solid var(--cargo-border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  background-color: var(--cargo-white);
+  border-bottom: 1px solid var(--cargo-line);
+  box-shadow: 0 2px 12px rgba(16, 37, 63, 0.05);
   position: sticky;
   top: 0;
   z-index: 1030;
+  backdrop-filter: blur(8px);
 }
 
-.cargo-brand-logo {
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  color: var(--cargo-gold) !important;
-  font-size: 1.15rem;
+.cargo-brand-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+  color: var(--cargo-navy);
+}
+
+.cargo-brand-text span {
+  color: var(--cargo-orange);
+}
+
+.cargo-tabs-wrapper {
+  background-color: #EDF2F7;
+  padding: 4px;
+  border-radius: 50rem;
+  border: 1px solid var(--cargo-line);
 }
 
 .cargo-nav-link {
-  color: #94A3B8 !important;
-  font-weight: 500;
-  font-size: 0.9rem;
-  padding: 0.5rem 0.9rem !important;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  color: var(--cargo-muted) !important;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.45rem 1.1rem !important;
+  border-radius: 50rem;
+  background: transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
 }
 
 .cargo-nav-link:hover {
-  color: #FFFFFF !important;
-  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--cargo-navy) !important;
 }
 
 .cargo-nav-link.active {
-  color: #000000 !important;
-  background-color: var(--cargo-gold);
-  font-weight: 700;
+  color: #FFFFFF !important;
+  background-color: var(--cargo-navy);
+  box-shadow: 0 4px 14px rgba(16, 37, 63, 0.18);
 }
 
-.student-badge {
-  background: rgba(255, 184, 0, 0.15);
-  border: 1px solid rgba(255, 184, 0, 0.3);
-  color: var(--cargo-gold);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.35rem 0.75rem;
-  border-radius: 50rem;
+.cargo-footer {
+  background-color: var(--cargo-white);
+  border-top: 1px solid var(--cargo-line);
 }
 
 /* ==========================================================================

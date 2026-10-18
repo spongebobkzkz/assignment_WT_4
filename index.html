@@ -20,30 +20,35 @@
     }
   </style>
 </head>
-<body style="background-color: #0B0F17; color: #FFFFFF; min-height: 100vh;">
+<body>
 
-  <!-- Cargo Navigation Header -->
-  <header class="cargo-nav py-2.5">
-    <div class="container-fluid px-3 px-md-4 d-flex flex-wrap align-items-center justify-content-between gap-2">
-      <div class="d-flex align-items-center cargo-brand-logo gap-2">
-        <span class="fs-4">⚡</span>
-        <div>
-          <div class="fw-bold tracking-wide text-warning" style="font-size: 1.05rem;">SPEED CARGO</div>
-          <div style="font-size: 0.65rem; color: #94A3B8; font-weight: 500; letter-spacing: 0.08em;">FORMS &amp; VALIDATION • AITU</div>
-        </div>
-      </div>
+  <!-- Cargo Pulse Navigation Header -->
+  <header class="cargo-nav py-2.5 sticky-top">
+    <div class="container px-3 px-md-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <a class="navbar-brand text-decoration-none d-flex align-items-center gap-2 m-0" href="index.html">
+        <span style="display:inline-block; width:10px; height:10px; background-color:#FF8A3D; border-radius:50%; box-shadow: 0 0 10px rgba(255,138,61,0.6);"></span>
+        <span class="cargo-brand-text">CARGO<span>/</span>PULSE</span>
+        <span class="badge rounded-pill text-uppercase ms-1" style="font-size: 0.65rem; background-color: #EDF2F7; color: #475569; letter-spacing: 0.05em; font-weight: 600;">Transit &amp; Forms</span>
+      </a>
       
-      <!-- Nav Tabs -->
-      <nav class="d-flex align-items-center flex-wrap gap-1 bg-dark p-1 rounded-3 border border-secondary border-opacity-25">
+      <!-- Nav Tabs (Pill toggle) -->
+      <nav class="cargo-tabs-wrapper d-flex align-items-center flex-wrap gap-1">
         <button type="button" class="cargo-nav-link active border-0" onclick="showTab('train')">🚆 Train Ticket</button>
-        <button type="button" class="cargo-nav-link border-0" onclick="showTab('hackathon')">💻 Hackathon Form</button>
-        <button type="button" class="cargo-nav-link border-0" onclick="showTab('cafe')">🍽️ Table Reservation</button>
+        <button type="button" class="cargo-nav-link border-0" onclick="showTab('hackathon')">💻 AITU Hack 2026</button>
+        <button type="button" class="cargo-nav-link border-0" onclick="showTab('cafe')">🍽️ Lounge Booking</button>
       </nav>
     </div>
   </header>
 
+  <!-- Hero Eyebrow Section -->
+  <div class="text-center pt-4 pb-2 px-3">
+    <div class="text-uppercase fw-bold" style="letter-spacing: 0.15em; color: #FF8A3D; font-size: 0.78rem;">Central Asia Express Transit</div>
+    <h1 class="fw-bold mt-1 mb-2" style="font-family: 'Space Grotesk', sans-serif; color: #10253F; font-size: 2.1rem; letter-spacing: -0.03em;">Online Booking &amp; Registration Portal</h1>
+    <p class="text-muted small mx-auto mb-0" style="max-width: 580px;">Select a service above to complete ticket booking, participant registration, or executive lounge reservation.</p>
+  </div>
+
   <!-- Main Content Container -->
-  <main class="container py-4 py-md-5">
+  <main class="container py-4">
 
     <!-- ==================== TAB 1: TRAIN TICKET ==================== -->
     <div id="tab-train" class="tab-content-pane active">
@@ -170,8 +175,8 @@
       <div class="task2-wrapper">
         
         <div class="task2-card mb-5" style="color: #16302B;">
-          <h2 class="h4 fw-bold mb-3 text-center">Registration for AITU Hack 2026</h2>
-          <p class="text-muted small text-center mb-4">All rules enforced purely with native HTML attributes.</p>
+          <h2 class="h4 fw-bold mb-2 text-center" style="font-family: 'Space Grotesk', sans-serif; color: #10253F;">Registration for AITU Hack 2026</h2>
+          <p class="text-muted small text-center mb-4">Participant credentials &amp; team verification form</p>
 
           <form class="task2-form" action="#" method="post">
             <div class="row g-3">
@@ -295,8 +300,8 @@
       <div class="task3-wrapper">
         
         <div class="task3-card mb-5" style="color: #16302B;">
-          <h2 class="h4 fw-bold mb-3 text-center">Reserve a Table (Fixed Form)</h2>
-          <p class="text-muted small text-center mb-4">Rebuilt with Bootstrap, 100% W3C Valid, Keyboard Navigable.</p>
+          <h2 class="h4 fw-bold mb-2 text-center" style="font-family: 'Space Grotesk', sans-serif; color: #10253F;">Executive Lounge Table Reservation</h2>
+          <p class="text-muted small text-center mb-4">Rebuilt with Bootstrap 5 • 100% W3C Valid • Fully Keyboard Accessible</p>
 
           <form action="#" method="post">
             <div class="row g-3">
@@ -367,8 +372,15 @@
 
   </main>
 
-  <footer class="text-center py-4 text-secondary small border-top border-secondary border-opacity-10">
-    &copy; 2026 Speed Cargo Logistics • Forms &amp; Validation
+  <footer class="cargo-footer text-center py-4 mt-5">
+    <div class="container">
+      <div class="fw-bold mb-1" style="font-family: 'Space Grotesk', sans-serif; color: #10253F; font-size: 1.15rem; letter-spacing: -0.03em;">
+        CARGO<span style="color:#FF8A3D;">/</span>PULSE
+      </div>
+      <div class="text-muted small">
+        &copy; 2026 Cargo/Pulse Logistics &amp; Transport • Forms &amp; Validation Portal
+      </div>
+    </div>
   </footer>
 
   <!-- Tab Switcher Script (Native, no form manipulation) -->
