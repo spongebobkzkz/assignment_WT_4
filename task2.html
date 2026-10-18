@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2: Registration for AITU Hack 2026 — Assignment #4 | Beisenbay Estai</title>
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+  <!-- Cargo Navigation Header -->
+  <nav class="cargo-nav py-2.5">
+    <div class="container-fluid px-3 px-md-4 d-flex flex-wrap align-items-center justify-content-between gap-2">
+      <a href="index.html" class="d-flex align-items-center text-decoration-none cargo-brand-logo gap-2">
+        <span class="fs-4">⚡</span>
+        <div>
+          <div>SWIFTCARGO / AITU</div>
+          <div style="font-size: 0.65rem; color: #94A3B8; font-weight: 500; letter-spacing: 0.08em;">ASSIGNMENT #4 • WT</div>
+        </div>
+      </a>
+      
+      <div class="d-flex align-items-center flex-wrap gap-2">
+        <a href="index.html" class="cargo-nav-link text-decoration-none">Overview</a>
+        <a href="task1.html" class="cargo-nav-link text-decoration-none">Task 1 (Train Ticket)</a>
+        <a href="task2.html" class="cargo-nav-link active text-decoration-none">Task 2 (Validation)</a>
+        <a href="task3.html" class="cargo-nav-link text-decoration-none">Task 3 (Fix Form)</a>
+      </div>
+
+      <div class="student-badge d-none d-lg-block">
+        👤 Beisenbay Estai • IT-2511
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="container py-4 py-md-5">
+    
+    <div class="task2-wrapper">
+      
+      <div class="text-center mb-4">
+        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-bold mb-2">Native HTML Validation • No JS • No pattern attribute</span>
+        <h1 class="fw-bold h2 mt-2 mb-1">Registration for AITU Hack 2026</h1>
+        <p class="text-muted small">Fields marked with an asterisk (<span class="text-danger fw-bold">*</span>) are required. Validation errors appear only after interacting with a field.</p>
+      </div>
+
+      <!-- Registration Form Card -->
+      <div class="task2-card mb-5">
+        
+        <!-- Strictly NO JavaScript and NO novalidate attribute -->
+        <form class="task2-form" action="#" method="post">
+          
+          <div class="row g-3">
+            
+            <!-- 1. Full name * -->
+            <div class="col-12 col-md-6">
+              <label for="fullName" class="form-label fw-semibold small">Full name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="fullName" name="fullName" minlength="2" maxlength="40" placeholder="e.g. Anna-Maria Lee" required>
+              <div class="invalid-feedback">Must be between 2 and 40 characters.</div>
+            </div>
+
+            <!-- 2. University email * -->
+            <div class="col-12 col-md-6">
+              <label for="universityEmail" class="form-label fw-semibold small">University email <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="universityEmail" name="universityEmail" placeholder="e.g. a.fedenko@astanait.edu.kz" required>
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+
+            <!-- 3. Age * (whole number 16-30) -->
+            <div class="col-12 col-md-4">
+              <label for="studentAge" class="form-label fw-semibold small">Age <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="studentAge" name="studentAge" min="16" max="30" step="1" placeholder="16–30" required>
+              <div class="invalid-feedback">Must be a whole number between 16 and 30.</div>
+            </div>
+
+            <!-- 4. Team size * (whole number 1-4) -->
+            <div class="col-12 col-md-4">
+              <label for="teamSize" class="form-label fw-semibold small">Team size <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="teamSize" name="teamSize" min="1" max="4" step="1" placeholder="1–4" required>
+              <div class="invalid-feedback">Team size must be a whole number from 1 to 4.</div>
+            </div>
+
+            <!-- 5. Track * (Web, Mobile, AI, GameDev; rejects Choose...) -->
+            <div class="col-12 col-md-4">
+              <label for="hackTrack" class="form-label fw-semibold small">Track <span class="text-danger">*</span></label>
+              <select class="form-select" id="hackTrack" name="hackTrack" required>
+                <option value="" disabled selected hidden>Choose...</option>
+                <option value="Web">Web</option>
+                <option value="Mobile">Mobile</option>
+                <option value="AI">AI</option>
+                <option value="GameDev">GameDev</option>
+              </select>
+              <div class="invalid-feedback">Please select a valid hackathon track.</div>
+            </div>
+
+            <!-- 6. Arrival day * (20-22 November 2026) -->
+            <div class="col-12 col-md-6">
+              <label for="arrivalDay" class="form-label fw-semibold small">Arrival day <span class="text-danger">*</span></label>
+              <input type="date" class="form-control" id="arrivalDay" name="arrivalDay" min="2026-11-20" max="2026-11-22" required>
+              <div class="invalid-feedback">Arrival must be between 20 and 22 November 2026.</div>
+            </div>
+
+            <!-- 7. Check-in time * (09:00-18:00, every 30 minutes = 1800s step) -->
+            <div class="col-12 col-md-6">
+              <label for="checkinTime" class="form-label fw-semibold small">Check-in time <span class="text-danger">*</span></label>
+              <input type="time" class="form-control" id="checkinTime" name="checkinTime" min="09:00" max="18:00" step="1800" required>
+              <div class="invalid-feedback">Time must be between 09:00 and 18:00 in 30-minute intervals.</div>
+            </div>
+
+            <!-- 8. Entry fee * (0-5000 ₸, in steps of 500 ₸) -->
+            <div class="col-12 col-md-6">
+              <label for="entryFee" class="form-label fw-semibold small">Entry fee (₸) <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="entryFee" name="entryFee" min="0" max="5000" step="500" placeholder="0–5000 (steps of 500)" required>
+              <div class="invalid-feedback">Fee must be 0–5000 ₸ in increments of 500 ₸.</div>
+            </div>
+
+            <!-- 9. Experience level * (One of 3 radio buttons) -->
+            <div class="col-12 col-md-6">
+              <fieldset>
+                <legend class="form-label fw-semibold small mb-2 pt-0">Experience level <span class="text-danger">*</span></legend>
+                <div class="d-flex flex-wrap gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="experienceLevel" id="expBeginner" value="Beginner" required>
+                    <label class="form-check-label" for="expBeginner">Beginner</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="experienceLevel" id="expIntermediate" value="Intermediate" required>
+                    <label class="form-check-label" for="expIntermediate">Intermediate</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="experienceLevel" id="expAdvanced" value="Advanced" required>
+                    <label class="form-check-label" for="expAdvanced">Advanced</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <!-- 10. GitHub profile (optional, a full link) -->
+            <div class="col-12 col-md-6">
+              <label for="githubProfile" class="form-label fw-semibold small">GitHub profile <span class="text-muted fw-normal">(optional)</span></label>
+              <input type="url" class="form-control" id="githubProfile" name="githubProfile" placeholder="https://github.com/username">
+              <div class="invalid-feedback">Must be a full valid URL starting with http:// or https://</div>
+            </div>
+
+            <!-- 11. Password * (8-20 characters) -->
+            <div class="col-12 col-md-6">
+              <label for="accountPassword" class="form-label fw-semibold small">Password <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" id="accountPassword" name="accountPassword" minlength="8" maxlength="20" placeholder="8–20 characters" required>
+              <div class="invalid-feedback">Password must be between 8 and 20 characters.</div>
+            </div>
+
+            <!-- 12. Motivation * (50-300 characters) -->
+            <div class="col-12">
+              <label for="motivationText" class="form-label fw-semibold small">Motivation <span class="text-danger">*</span></label>
+              <textarea class="form-control" id="motivationText" name="motivationText" rows="3" minlength="50" maxlength="300" placeholder="Explain your motivation for participating (50 to 300 characters)..." required></textarea>
+              <div class="invalid-feedback">Motivation statement must be between 50 and 300 characters.</div>
+            </div>
+
+            <!-- 13. Rules agreement * (checkbox) -->
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rulesAgreement" name="rulesAgreement" required>
+                <label class="form-check-label small fw-semibold" for="rulesAgreement">
+                  I agree to the AITU Hack 2026 rules and guidelines <span class="text-danger">*</span>
+                </label>
+                <div class="invalid-feedback">You must check this box to complete registration.</div>
+              </div>
+            </div>
+
+            <!-- Submission button -->
+            <div class="col-12 mt-4 text-end">
+              <button type="reset" class="btn btn-outline-secondary rounded-pill px-4 me-2">Reset</button>
+              <button type="submit" class="btn btn-success rounded-pill px-5 fw-bold shadow-sm">Submit Registration</button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <!-- Verification & Evaluation Table -->
+      <div class="card border-0 shadow-sm rounded-4 p-4">
+        <h2 class="h5 fw-bold mb-3">📋 Task 2 Verification Table (Specification Compliance)</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-middle mb-0">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Field</th>
+                <th scope="col">Rule</th>
+                <th scope="col">HTML Attributes Used</th>
+                <th scope="col">Must Accept</th>
+                <th scope="col">Must Reject</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fw-bold">Full name *</td>
+                <td>2–40 characters</td>
+                <td><code>type="text" minlength="2" maxlength="40" required</code></td>
+                <td><span class="test-badge-accept">Anna-Maria Lee</span></td>
+                <td><span class="test-badge-reject">A</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">University email *</td>
+                <td>a valid email address</td>
+                <td><code>type="email" required</code></td>
+                <td><span class="test-badge-accept">a.fedenko@astanait.edu.kz</span></td>
+                <td><span class="test-badge-reject">a.fedenko</span>, <span class="test-badge-reject">a.fedenko@</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Age *</td>
+                <td>a whole number from 16 to 30</td>
+                <td><code>type="number" min="16" max="30" step="1" required</code></td>
+                <td><span class="test-badge-accept">18</span></td>
+                <td><span class="test-badge-reject">15</span>, <span class="test-badge-reject">31</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Team size *</td>
+                <td>a whole number from 1 to 4</td>
+                <td><code>type="number" min="1" max="4" step="1" required</code></td>
+                <td><span class="test-badge-accept">4</span></td>
+                <td><span class="test-badge-reject">5</span>, <span class="test-badge-reject">2.5</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Track *</td>
+                <td>Web, Mobile, AI or GameDev</td>
+                <td><code>&lt;select required&gt; &lt;option value="" disabled selected hidden&gt;Choose...&lt;/option&gt;</code></td>
+                <td><span class="test-badge-accept">Web</span></td>
+                <td><span class="test-badge-reject">"Choose…"</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Arrival day *</td>
+                <td>20–22 November 2026</td>
+                <td><code>type="date" min="2026-11-20" max="2026-11-22" required</code></td>
+                <td><span class="test-badge-accept">21.11.2026</span></td>
+                <td><span class="test-badge-reject">25.11.2026</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Check-in time *</td>
+                <td>09:00–18:00, every 30 minutes</td>
+                <td><code>type="time" min="09:00" max="18:00" step="1800" required</code></td>
+                <td><span class="test-badge-accept">10:30</span></td>
+                <td><span class="test-badge-reject">10:15</span>, <span class="test-badge-reject">19:00</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Entry fee *</td>
+                <td>0–5000 ₸, in steps of 500 ₸</td>
+                <td><code>type="number" min="0" max="5000" step="500" required</code></td>
+                <td><span class="test-badge-accept">1500</span></td>
+                <td><span class="test-badge-reject">1250</span>, <span class="test-badge-reject">6000</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Experience level *</td>
+                <td>one of three radio buttons</td>
+                <td><code>type="radio" name="experienceLevel" required</code></td>
+                <td><span class="test-badge-accept">Beginner</span></td>
+                <td><span class="test-badge-reject">nothing chosen</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">GitHub profile</td>
+                <td>optional, a full link</td>
+                <td><code>type="url"</code> (no required attribute)</td>
+                <td><span class="test-badge-accept">(empty)</span>, <span class="test-badge-accept">https://github.com/yerassyl-dev</span></td>
+                <td><span class="test-badge-reject">github.com/yerassyl-dev</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Password *</td>
+                <td>8–20 characters</td>
+                <td><code>type="password" minlength="8" maxlength="20" required</code></td>
+                <td><span class="test-badge-accept">Astana2026</span></td>
+                <td><span class="test-badge-reject">short</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Motivation *</td>
+                <td>50–300 characters</td>
+                <td><code>&lt;textarea minlength="50" maxlength="300" required&gt;</code></td>
+                <td><span class="test-badge-accept">120 characters</span></td>
+                <td><span class="test-badge-reject">49 characters</span></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Rules agreement *</td>
+                <td>checkbox</td>
+                <td><code>type="checkbox" required</code></td>
+                <td><span class="test-badge-accept">ticked</span></td>
+                <td><span class="test-badge-reject">not ticked</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="text-center py-4 text-muted small">
+    Assignment #4 • Web Technologies • Beisenbay Estai (IT-2511)
+  </footer>
+
+</body>
+</html>
