@@ -1,22 +1,14 @@
-/* ==========================================================================
-   Assignment #4: Forms and Validation (HTML + Bootstrap)
-   Author: Beisenbay Estai
-   Group: IT-2511
-   Astana IT University
-   ========================================================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 
 :root {
-  /* Assignment Task 1 Official Palette (Strictly preserved for grading) */
+
   --color-teal: #0F6B5F;
   --color-orange: #F2A93B;
   --color-dark: #16302B;
   --color-bg-page: #F5F7FA;
   --color-border-light: #E6EFEC;
   --color-input-bg: #F4F7F5;
-  
-  /* Cargo Pulse Design System */
+
   --cargo-navy: #10253F;
   --cargo-blue: #2674D9;
   --cargo-orange: #FF8A3D;
@@ -27,7 +19,6 @@
   --cargo-white: #FFFFFF;
 }
 
-/* Base typography */
 body {
   font-family: 'DM Sans', 'Montserrat', sans-serif;
   color: var(--cargo-text);
@@ -42,15 +33,11 @@ h1, h2, h3, .brand-font {
   font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Universal focus ring for accessibility */
 *:focus-visible {
   outline: 2px solid var(--cargo-blue);
   outline-offset: 2px;
 }
 
-/* ==========================================================================
-   CARGO NAVIGATION BAR & BRANDING
-   ========================================================================== */
 .cargo-nav {
   background-color: var(--cargo-white);
   border-bottom: 1px solid var(--cargo-line);
@@ -107,11 +94,6 @@ h1, h2, h3, .brand-font {
   border-top: 1px solid var(--cargo-line);
 }
 
-/* ==========================================================================
-   TASK 1: BOOK A TRAIN TICKET FORM
-   Strictly reproducing page 2 requirements:
-   Colors: #0F6B5F, #F2A93B, #16302B, #F4F7F5, #E6EFEC
-   ========================================================================== */
 .train-booking-wrapper {
   max-width: 820px;
   width: 100%;
@@ -184,7 +166,6 @@ h1, h2, h3, .brand-font {
   box-shadow: 0 4px 14px rgba(15, 107, 95, 0.2);
 }
 
-/* Trip Type Segmented Radio Toggle */
 .trip-type-segmented {
   display: inline-flex;
   border: 1.5px solid var(--color-teal);
@@ -214,7 +195,6 @@ h1, h2, h3, .brand-font {
   box-shadow: 0 0 0 3px rgba(15, 107, 95, 0.3);
 }
 
-/* Form Controls & Floating Labels */
 .train-card .form-control,
 .train-card .form-select {
   background-color: var(--color-input-bg);
@@ -250,7 +230,6 @@ h1, h2, h3, .brand-font {
   color: var(--color-dark);
 }
 
-/* Phone input group prefix */
 .custom-prefix-box {
   background-color: var(--color-teal) !important;
   color: #FFFFFF !important;
@@ -263,7 +242,6 @@ h1, h2, h3, .brand-font {
   padding-right: 14px;
 }
 
-/* Radio buttons & Checkboxes */
 .form-check-input:checked {
   background-color: var(--color-teal);
   border-color: var(--color-teal);
@@ -281,7 +259,6 @@ h1, h2, h3, .brand-font {
   user-select: none;
 }
 
-/* Buttons */
 .btn-find-trains {
   background-color: var(--color-orange);
   color: var(--color-dark);
@@ -321,11 +298,6 @@ h1, h2, h3, .brand-font {
   color: #FFFFFF;
 }
 
-/* ==========================================================================
-   TASK 2: AITU HACK 2026 REGISTRATION & HTML VALIDATION
-   Native HTML validation with :user-invalid and :user-valid
-   No JavaScript! No novalidate!
-   ========================================================================== */
 .task2-wrapper {
   max-width: 900px;
   width: 100%;
@@ -346,12 +318,6 @@ h1, h2, h3, .brand-font {
   }
 }
 
-/*
-  IMPORTANT FOR TASK 2:
-  Errors appear ONLY after the user has changed a field!
-  Bootstrap hides .invalid-feedback by default.
-  We use the modern CSS pseudo-classes :user-invalid and :user-valid.
-*/
 .task2-form input:user-invalid,
 .task2-form select:user-invalid,
 .task2-form textarea:user-invalid {
@@ -396,9 +362,6 @@ h1, h2, h3, .brand-font {
   display: inline-block;
 }
 
-/* ==========================================================================
-   TASK 3: ACCESSIBLE BOOTSTRAP CAFE RESERVATION FORM
-   ========================================================================== */
 .task3-wrapper {
   max-width: 960px;
   width: 100%;

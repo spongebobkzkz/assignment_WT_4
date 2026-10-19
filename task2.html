@@ -4,60 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AITU Hack 2026 — Registration</title>
-  
-  <!-- Bootstrap 5.3 CSS -->
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
-  <!-- Custom Stylesheet -->
+
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body style="background-color: #F5F7FA; min-height: 100vh; padding: 40px 14px;">
 
   <div class="task2-wrapper">
-    
+
     <div class="text-center mb-4">
       <div class="text-uppercase fw-bold" style="letter-spacing: 0.15em; color: #FF8A3D; font-size: 0.78rem;">Central Asia Express Transit • AITU</div>
       <h1 class="fw-bold mt-1 mb-2" style="font-family: 'Space Grotesk', sans-serif; color: #10253F;">Registration for AITU Hack 2026</h1>
       <p class="text-muted small">Fields marked with an asterisk (<span class="text-danger fw-bold">*</span>) are required.</p>
     </div>
 
-    <!-- Registration Form Card -->
     <div class="task2-card mb-5">
-      
-      <!-- Native HTML Validation Only: No JS, No novalidate, No pattern attribute -->
+
       <form class="task2-form" action="#" method="post">
-        
+
         <div class="row g-3">
-          
-          <!-- 1. Full name * -->
+
           <div class="col-12 col-md-6">
             <label for="fullName" class="form-label fw-semibold small">Full name <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="fullName" name="fullName" minlength="2" maxlength="40" placeholder="e.g. Anna-Maria Lee" required>
             <div class="invalid-feedback">Must be between 2 and 40 characters.</div>
           </div>
 
-          <!-- 2. University email * -->
           <div class="col-12 col-md-6">
             <label for="universityEmail" class="form-label fw-semibold small">University email <span class="text-danger">*</span></label>
             <input type="email" class="form-control" id="universityEmail" name="universityEmail" placeholder="e.g. a.fedenko@astanait.edu.kz" required>
             <div class="invalid-feedback">Please provide a valid email address.</div>
           </div>
 
-          <!-- 3. Age * -->
           <div class="col-12 col-md-4">
             <label for="studentAge" class="form-label fw-semibold small">Age <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="studentAge" name="studentAge" min="16" max="30" step="1" placeholder="16–30" required>
             <div class="invalid-feedback">Must be a whole number between 16 and 30.</div>
           </div>
 
-          <!-- 4. Team size * -->
           <div class="col-12 col-md-4">
             <label for="teamSize" class="form-label fw-semibold small">Team size <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="teamSize" name="teamSize" min="1" max="4" step="1" placeholder="1–4" required>
             <div class="invalid-feedback">Team size must be a whole number from 1 to 4.</div>
           </div>
 
-          <!-- 5. Track * -->
           <div class="col-12 col-md-4">
             <label for="hackTrack" class="form-label fw-semibold small">Track <span class="text-danger">*</span></label>
             <select class="form-select" id="hackTrack" name="hackTrack" required>
@@ -70,28 +61,24 @@
             <div class="invalid-feedback">Please choose a track.</div>
           </div>
 
-          <!-- 6. Arrival day * -->
           <div class="col-12 col-md-6">
             <label for="arrivalDay" class="form-label fw-semibold small">Arrival day <span class="text-danger">*</span></label>
             <input type="date" class="form-control" id="arrivalDay" name="arrivalDay" min="2026-11-20" max="2026-11-22" required>
             <div class="invalid-feedback">Arrival must be between 20 and 22 November 2026.</div>
           </div>
 
-          <!-- 7. Check-in time * -->
           <div class="col-12 col-md-6">
             <label for="checkinTime" class="form-label fw-semibold small">Check-in time <span class="text-danger">*</span></label>
             <input type="time" class="form-control" id="checkinTime" name="checkinTime" min="09:00" max="18:00" step="1800" required>
             <div class="invalid-feedback">Time must be 09:00–18:00 in 30-minute steps.</div>
           </div>
 
-          <!-- 8. Entry fee * -->
           <div class="col-12 col-md-6">
             <label for="entryFee" class="form-label fw-semibold small">Entry fee (₸) <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="entryFee" name="entryFee" min="0" max="5000" step="500" placeholder="0–5000 (steps of 500)" required>
             <div class="invalid-feedback">Fee must be 0–5000 ₸ in steps of 500 ₸.</div>
           </div>
 
-          <!-- 9. Experience level * -->
           <div class="col-12 col-md-6">
             <fieldset>
               <legend class="form-label fw-semibold small mb-2 pt-0">Experience level <span class="text-danger">*</span></legend>
@@ -112,28 +99,24 @@
             </fieldset>
           </div>
 
-          <!-- 10. GitHub profile -->
           <div class="col-12 col-md-6">
             <label for="githubProfile" class="form-label fw-semibold small">GitHub profile <span class="text-muted fw-normal">(optional)</span></label>
             <input type="url" class="form-control" id="githubProfile" name="githubProfile" placeholder="https://github.com/username">
             <div class="invalid-feedback">Must be a full valid link (e.g. https://github.com/...).</div>
           </div>
 
-          <!-- 11. Password * -->
           <div class="col-12 col-md-6">
             <label for="accountPassword" class="form-label fw-semibold small">Password <span class="text-danger">*</span></label>
             <input type="password" class="form-control" id="accountPassword" name="accountPassword" minlength="8" maxlength="20" placeholder="8–20 characters" required>
             <div class="invalid-feedback">Password must be 8–20 characters.</div>
           </div>
 
-          <!-- 12. Motivation * -->
           <div class="col-12">
             <label for="motivationText" class="form-label fw-semibold small">Motivation <span class="text-danger">*</span></label>
             <textarea class="form-control" id="motivationText" name="motivationText" rows="3" minlength="50" maxlength="300" placeholder="50 to 300 characters..." required></textarea>
             <div class="invalid-feedback">Motivation must be 50–300 characters.</div>
           </div>
 
-          <!-- 13. Rules agreement * -->
           <div class="col-12">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="rulesAgreement" name="rulesAgreement" required>
